@@ -18,6 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('home2', 'InicialController');
+Route::get('home3', 'Inicial2Controller@index');
+
+
 Route::middleware(['auth'])->prefix('painel')->group(function () {
     Route::get('/','Usuarios\PainelController@index');
 
@@ -53,3 +57,5 @@ Route::middleware(['auth'])->prefix('painel')->group(function () {
       Route::post('/upload-arquivos', 'Usuarios\ArquivosController@store');
     });
 });
+
+
